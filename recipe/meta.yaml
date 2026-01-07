@@ -56,8 +56,8 @@ requirements:
     - jinja2
     - pyparsing
     - cuda-version {{ cuda_compiler_version }}  # [cuda_compiler_version != "None"]
-    - cudnn                                     # [cuda_compiler_version != "None"]
     - libcublas-dev                             # [cuda_compiler_version != "None"]
+    - libcudnn-dev                              # [cuda_compiler_version != "None"]
     - libcufft-dev                              # [cuda_compiler_version != "None"]
     - libcurand-dev                             # [cuda_compiler_version != "None"]
     - libcusolver-dev                           # [cuda_compiler_version != "None"]
@@ -65,7 +65,6 @@ requirements:
     - nccl                                      # [cuda_compiler_version != "None"]
   run:
     - python
-    - {{ pin_compatible('cudnn') }}  # [cuda_compiler_version != "None"]
   run_constrained:
     # additional run constraint to the one from the (version-only) run_export;
     # constraining the CPU builds to CPU pytorch isn't 100% necessary, but cleaner
